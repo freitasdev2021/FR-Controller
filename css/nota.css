@@ -1,0 +1,76 @@
+*{
+    text-decoration:none;
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+
+
+.cabecalho{
+    /* background:#234D9D; */
+    background: rgb(241,241,241);
+    width:100%;
+    display:flex;
+    flex-direction:row;
+    padding:10px;
+    justify-content:space-between
+}
+
+.opcoes{
+    font-size:1.5em;
+}
+
+.opcoes a{
+    margin:5px;
+    color:white;
+}
+
+.titulo{
+    color:white;
+}
+
+.ordem{
+    display:flex;
+    width:100%;
+    justify-content:center;
+    flex-direction:column;
+    text-align:center;
+}
+
+.ordem .orderTitle{
+    padding:10px;
+}
+
+.orderTitle strong{
+    font-size:1.3em;
+}
+
+#baixarOrdem{
+    cursor:pointer;
+    color:white;
+}
+
+.ordem .tituloServico{
+    display:flex;
+    justify-content:center;
+    text-align:center;
+}
+
+.dadosOrdem{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.dadosOrdem p{
+    margin:10px;
+    font-size:1.5em;
+}
+
+.dadosServico .leibel{
+    font-size:1.3em;
+}
+
+.tabelaMobra{
+    width:100%;
+}

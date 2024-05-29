@@ -1,0 +1,143 @@
+*{
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  font-family: "Open Sans",sans-serif;
+}
+
+header{
+  height: 90px;
+  background: #ffffff;
+}
+
+.inner-width{
+  max-width: 1500px;
+  padding: 0 10px;
+  margin: auto;
+}
+
+.logo{
+  float: left;
+  padding: 20px 0;
+}
+
+.servicos{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  text-align:center;
+  flex-direction:column;
+  flex-wrap:wrap;
+}
+
+.servicos .solucoes .solucao img{
+  width:350px;
+  height:200px;
+  border-radius:10px;
+}
+
+.servicos .solucoes{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.servicos .solucoes .solucao{
+  margin:10px;
+}
+
+.servicos .solucao h3{
+  font-size:1.3em;
+  width:350px;
+  text-align:center;
+}
+
+.personalizados{
+  background-color: whitesmoke;
+  padding:50px;
+}
+
+.logo img{
+  height: 50px;
+}
+
+.navigation-menu{
+  float: right;
+  display: flex;
+  align-items: center;
+  min-height: 90px;
+}
+
+.navigation-menu a{
+  margin-left: 10px;
+  color: #1a1818;
+  text-transform: uppercase;
+  font-size: 14px;
+  padding: 12px 20px;
+  border-radius: 4px;
+  transition: .3s linear;
+}
+
+.navigation-menu a:hover{
+  background: #fff;
+  color: #2f3640;
+  transform: scale(1.1);
+}
+
+.navigation-menu i{
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+.menu-toggle-btn{
+  float: right;
+  height: 90px;
+  line-height: 90px !important;
+  color: #fff;
+  font-size: 26px;
+  display: none !important;
+  cursor: pointer;
+}
+
+
+@media screen and (max-width:1000px) {
+  .menu-toggle-btn{
+    display: block !important;
+  }
+
+  .navigation-menu{
+    position: fixed;
+    width: 100%;
+    
+    background: #ffffff;
+    top: 90px;
+    right: 0;
+    display: none;
+    padding: 20px 40px;
+    box-sizing: border-box;
+  }
+
+  .navigation-menu::before{
+    content: "";
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #ffffff;;
+    position: absolute;
+    top: -10px;
+    right: 10px;
+  }
+
+  .banner button{
+    margin:10px;
+  }
+
+  .navigation-menu a{
+    display: block;
+    margin: 10px 0;
+  }
+
+  .navigation-menu.active{
+    display: block;
+  }
+}

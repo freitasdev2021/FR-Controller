@@ -1,0 +1,2 @@
+quando o usuario nao tiver pontos de venda disponiveis, exibir uma mensagem sem volta
+colocar rolagem no caixa

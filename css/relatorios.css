@@ -1,0 +1,271 @@
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    border: none;
+    position: relative;
+    margin-bottom: 30px;
+    box-shadow: 0 0.46875rem 2.1875rem rgba(90,97,105,0.1), 0 0.9375rem 1.40625rem rgba(90,97,105,0.1), 0 0.25rem 0.53125rem rgba(90,97,105,0.12), 0 0.125rem 0.1875rem rgba(90,97,105,0.1);
+}
+
+.text-center{
+    text-align:center;
+}
+
+.l-bg-fr {
+    background: linear-gradient(to right, #234D9D, white) !important;
+    color: #fff;
+}
+
+.card .card-statistic-3 .card-icon-large .fas, .card .card-statistic-3 .card-icon-large .far, .card .card-statistic-3 .card-icon-large .fab, .card .card-statistic-3 .card-icon-large .fal {
+    font-size: 110px;
+}
+
+.card .card-statistic-3 .card-icon {
+    text-align: center;
+    line-height: 50px;
+    margin-left: 15px;
+    color: #000;
+    position: absolute;
+    right: -5px;
+    top: 20px;
+    opacity: 0.1;
+}
+
+.l-bg-red {
+    background: linear-gradient(to right, red, white) !important;
+    color: #fff;
+}
+
+.l-bg-green {
+    background: linear-gradient(to right, green, white) !important;
+    color: #fff;
+}
+
+.l-bg-orange {
+    background: linear-gradient(to right, orange, white) !important;
+    color: #fff;
+}
+
+.relatoriosadmin{
+    margin-top:10px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    flex-direction:row;
+    width:100%;
+}
+
+.relatorioadmin{
+    width:350px;
+}
+
+.relatoriosDiv{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+}
+
+#relPlanos{
+    display:flex;
+    justify-content:center;
+    width:100%;
+}
+
+/* #relFiliais{
+    display:flex;
+    justify-content:center;
+    width:100%;
+} */
+
+.relatoriospanel{
+    margin-top:10px;
+    display:flex;
+    flex-wrap:wrap;
+    flex-direction:row;
+    justify-content:center;
+    width:50%;
+    float:left;
+}
+
+.relCats{
+    float:right;
+    width:50%;
+}
+
+.relPags,.relSirvissosMod,.relCatsMod,.relPromos{
+    width:25%;
+}
+
+.relSirvissos{
+    float:right;
+    width:50%;
+}
+
+.relatoriopanel{
+    padding:10px;
+    width:50%;
+}
+
+.relBar{
+    display:flex;
+    justify-content:center;
+    width:100%;
+    flex-wrap:wrap;
+}
+
+.rb{
+    width:50%;
+}
+
+.rbf{
+    width:33%;
+}
+
+.relatoriosTables{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items:center;
+}
+
+.relatoriosTables .acordiao{
+    width:95%;
+}
+
+.relatoriosTables .accordion__header{
+    background:#234D9D;
+    color:white;
+}
+
+.relatoriosTables .accordion__toggle{
+    color:white;
+}
+
+
+@media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1366px) {
+    .relatorioadmin{
+        width:100%;
+    }
+
+    .relatoriosDiv{
+        display:flex;
+        flex-direction:column;
+        height:1000px;
+        width:100%;
+        align-items:center;
+    }
+    
+    .relatoriosDiv div{
+        height:250px;
+    }
+
+    .relBar{
+        width:100%;
+    }
+
+    .relatoriospanel{
+        width:100%;
+    }
+
+    .relCats{
+        width:100%;
+    }
+
+    .relSirvissos{
+        width:100%;
+    }
+
+    .rb,.rbf{
+        width:100%;
+        display:flex;
+        justify-content:center;
+    }
+
+    .relatoriopanel{
+        width:100%;
+    }
+
+    #relPlanos{
+        display:flex;
+        justify-content:center;
+        width:100%;
+    }
+
+    .relCats{
+        width:100%;
+        display:flex;
+        justify-content:center;
+    }
+
+    .relSirvissos{
+        width:100%;
+        display:flex;
+        justify-content:center;
+    }
+
+}
+
+.relBarIndex{
+    float:right;
+    display:flex;
+    flex-direction:column;
+    width:50%;
+    flex-wrap:wrap;
+}
+
+@media only screen and (max-width: 1366px),
+(min-device-width: 768px) and (max-device-width: 1366px) {
+    .relBarIndex{
+        float:right;
+        display:flex;
+        flex-direction:column;
+        width:100%;
+        flex-wrap:wrap;
+    }
+}
+
+@media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px) {
+    .relatorioadmin{
+        width:100%;
+    }
+
+    .relBarIndex{
+        width:100%;
+    }
+
+    .relatoriospanel{
+        width:100%;
+    }
+
+    .relBar{
+        width:100%;
+    }
+
+    .relCats{
+        width:100%;
+    }
+
+    .relSirvissos{
+        width:100%;
+    }
+
+    .rb,.rbf{
+        width:100%;
+        display:flex;
+        justify-content:center;
+    }
+
+    .relatoriopanel{
+        width:100%;
+    }
+
+    #relPlanos{
+        display:flex;
+        justify-content:center;
+        width:100%;
+    }
+}

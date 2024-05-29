@@ -1,0 +1,79 @@
+.accordion__header {
+	padding: 1em;
+	background-color: #e0dcdc;
+	margin-top: 2px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	cursor: pointer;
+}
+
+.acordiao{
+    margin:10px;
+}
+
+.accordion__body{
+    margin-top:-10px;
+}
+
+.accordion__header > * {
+	margin-top: 0;
+	margin-bottom: 0;
+	font-size: 16px;
+}
+.accordion__header.is-active {
+	background-color: #234D9D;
+	color: #ccc;
+}
+
+.accordion__toggle {
+	margin-left: 10px;
+	height: 3px;
+	background-color: #234D9D;
+	width: 13px;
+	display: block;
+	position: relative;
+	flex-shrink: 1;
+	border-radius: 2px;
+}
+
+.accordion__toggle::before {
+	content: "";
+	width: 3px;
+	height: 13px;
+	display: block;
+	background-color: white
+	position: absolute;
+	top: -5px;
+	left: 5px;
+	border-radius: 2px;
+}
+
+.is-active .accordion__toggle {
+	background-color: #ccc;
+}
+.is-active .accordion__toggle::before {
+	display: none;
+}
+
+
+.accordion__body {
+	display: none;
+	padding: 1em;
+	border: 1px solid #ccc;
+	border-top: 0;
+}
+.accordion__body.is-active {
+	display: block;
+}
+
+.totalPg{
+	font-size:1.5em;
+}
+
+@media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px) {
+    .dataVenda{
+        font-size:10px;
+    }
+}

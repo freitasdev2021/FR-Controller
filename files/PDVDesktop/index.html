@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="files/img/fricon.ico" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="libs/Bootstrap 5/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/cupomCss.css">
+    <title>PDV: FR Tecnologia</title>
+</head>
+<body style="background:#234D9D;">
+    <nav class="navbar navbar-expand-lg frcontroller">
+        <div class="container-fluid">
+          <!--MODAL DE QUANTIDADE DE PRODUTOS KG OU METROS-->
+          <div class="modal otherModal fade " id="modalQt" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-sm" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Quantidade</h5>
+                  <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form id="formQt" class="form-controls">
+                    <div class="col-sm-12">
+                      <label for="inicioPromo">Quantidade</label>
+                      <input type="text" name="qtUn" class="form-control peso numbers" minlength="1" maxlength="10">
+                  </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-light bt_somar_quantidade">Ok</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--MODAL DE ADIÇÃO DE CLIENTE-->
+          <div class="modal otherModal fade " id="cadastroCliente" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Dados do Cliente</h5>
+                  <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form id="formCadastroClientes" class="form-controls">
+                    <input type="hidden" name="IDCliente">
+                      <div class="row">
+                          <div class="col-sm-6 input">
+                              <label for="nomeCliente">Nome</label>
+                              <input name="nomeCliente" type="name" class="form-control" minlength="10" maxlength="45">
+                              <div class="error-input text-danger">
+                                Preenchimento incorreto!
+                              </div>
+                          </div>
+                          <div class="col-sm-6 input">
+                              <label for="emailCliente">Email</label>
+                              <input type="email" name="emailCliente" class="form-control" minlength="5" maxlength="60">
+                              <div class="error-input text-danger">
+                                Preenchimento incorreto!
+                              </div>
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-sm-6 input">
+                              <label for="telefoneCliente">Telefone</label>
+                              <input type="tel" name="telefone" class="form-control" minlength="15">
+                              <div class="error-input text-danger">
+                                Preenchimento incorreto!
+                              </div>
+                          </div>
+                          <div class="col-sm-6 cpfCnpj">
+                              <label for="cpfCliente">CPF</label>
+                              <input type="text" name="cpf" class="form-control" minlength="14">
+                              <div class="error-input text-danger">
+                                Preenchimento incorreto!
+                              </div>
+                          </div>
+                      </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-bs-dismiss="modal">Cancelar</button>
+                  <button type="button" class="btn btn-primary bt_salvar_cliente">Salvar</button>
+                </div>
+              </div>
+            </div>
+          </div>          
+          <!--MODAL DE FINALIZAÇÃO DE VENDA-->
+          <div class="modal otherModal fade " id="modalVenda" tabindex="-1" role="dialog" data-bs-backdrop="static" data-bs-keyboard="false">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Finalizar venda</h5>
+                </div>
+                <div class="modal-body">
+                  <form id="formVenda">
+                    <div class="col-sm-12">
+                      <label>Cliente(Não Obrigatório)</label>
+                      <select name="cliente" class="form-control norequire">
+                        
+                      </select>
+                    </div>
+                    <div class="col-sm-12">
+                      <label>Método de Pagamento</label>
+                      <select name="pagamento" class="form-control">
+
+                      </select>
+                    </div>
+                    <div class="col-sm-12 troko money">
+                      <label>Calcular troco</label>
+                      <input type="text" placeholder="Valor Pago" class="form-control numbers">
+                      <label>Troco :<strong id="trokoVal">&nbsp;</strong></label>
+                    </div>
+                  </form>
+                  <hr>
+                  <strong style="font-size:20px; display:flex; width:100%">Valor total:&nbsp;<p id="valorModal"></p></strong>
+                  <hr>
+                  <strong style="font-size:1.5em; display:flex; width:100%">Valor pago:&nbsp;<p id="valorPago"></p></strong>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
+                  <button type="button" class="btn btn-primary bt_finalizar_venda">Finalizar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!---->
+          <!--MODAL DE ADIÇÃO DE EXIBIÇÃO DO CUPOM-->
+          <div class="modal otherModal fade " id="modalCupom" tabindex="-1" role="dialog" data-bs-backdrop="static" data-bs-keyboard="false">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Cupom</h5>
+                </div>
+                <div class="modal-body" style="display:flex; justify-content:center">
+                  
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-warning bt_baixar_cupom">Baixar</button>
+                  <button type="button" class="btn btn-default" data-bs-dismiss='modal'>Ok</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--MODAL DE LOGIN CASO O USUÁRIO TIVER DESLOGADO-->
+          <div class="modal otherModal fade " id="modalLogin" tabindex="-1" role="dialog" data-bs-backdrop="static" data-bs-keyboard="false">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Login</h5>
+                </div>
+                <div class="modal-body">
+                  <form id="formLogin" class="form-controls">
+                    <div class="col-sm-12">
+                      <label for="inicioPromo">Email</label>
+                      <input type="email" name="email" class="form-control" minlength="1" maxlength="50">
+                    </div>
+                    <div class="col-sm-12">
+                      <label for="inicioPromo">Senha</label>
+                      <input type="password" name="senha" class="form-control" minlength="1" maxlength="10">
+                    </div>
+                    <div class="col-sm-12 erroLogin">
+                      
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary bt_fazer_login">Login</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--MODAL DE ABERTURA DE CAIXA CASO O CAIXA TIVER FECHADO-->
+          <div class="modal otherModal fade " id="modalAbreCaixa" tabindex="-1" role="dialog" data-bs-backdrop="static" data-bs-keyboard="false">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Abrir Caixa</h5>
+                </div>
+                <div class="modal-body">
+                  <form id="formLogin" class="form-controls">
+                    <div class="col-sm-12">
+                      <label for="inicioPromo">Caixa</label>
+                      <select name="pdv" class="form-control">
+                        
+                      </select>
+                    </div>
+                    <div class="col-sm-12">
+                      <label for="inicioPromo">Senha do PDV</label>
+                      <input type="password" name="senhaPdv" class="form-control" minlength="1" maxlength="10">
+                    </div>
+                    <div class="col-sm-12 erroLogin">
+                      
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <a class="btn btn-danger bt_logout"><i class="fa-solid fa-door-closed"></i>&nbsp;Sair</a>
+                  <button type="button" class="btn btn-primary bt_abrir_caixa">Abrir</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!---->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav botoesHeader">
+              <li class="nav-item">
+                <a class="btn btn-primary bt_adicionar_clientes"><i class="fa-solid fa-users"></i>&nbsp;Clientes</a>
+              </li>
+              <li class="nav-item">
+                <a class="btn btn-warning bt_sincronizar_produtos"><i class="fa-solid fa-arrows-rotate"></i>&nbsp;Sincronizar Vendas</a>
+              </li>
+              <li class="nav-item">
+                <a class="btn btn-danger bt_fechar_caixa"><i class="fa-solid fa-door-closed"></i>&nbsp;Fechar caixa</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="otherContent">
+            <span id="datahora"></span>
+            <span id="operador">Operador: <b id="operadorname"></b></span>
+        </div>
+      </nav>
+      <nav class="navbar navbar-expand-lg frcontroller navform">
+        <hr>
+        <div class="dropdown">
+          <div id="myDropdown" class="dropdown-content">
+            <input type="search" class="pesquisaProduto" placeholder="Informe o código ou o nome do produto">
+          </div>
+        </div>
+      </nav>
+      <!--CONTEUDO DO PDV-->
+      <main class="conteudoPdv">
+        <img src="files/img/logo.png" class="imagemProduto">
+        <!---->
+        <section class="barraPedidos">
+          <table class="table frcontroller">
+              <thead>
+                <tr>
+                  <th>Nome</th>
+                  <th>V.Un</th>
+                  <th>Q.T</th>
+                  <th>V.Total</th>
+                  <th>&nbsp;</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+              </tbody>
+            </table>
+        </section>
+      </main>
+      <footer class="rodapePagamento frcontroller">
+        <!-- <span class="inputForm">
+            <select name="cliente">
+                <option value="">Cliente</option>
+            </select>
+        </span> -->
+        <span class="inputForm">
+            <button class="btn finalizacao">Finalizar</button>
+            <button class="btn btn-danger cancelarVenda">Cancelar</button>
+        </span>
+        <span id="subtotal">
+            Total: <strong id="subtotalval">0,00</strong>
+        </span>
+      </footer>
+      <script src="libs/jQuery 3.3.7/jquery.js"></script>
+      <script src="libs/Bootstrap 5/bootstrap.js"></script>
+      <script src="js/scripts.js"></script>
+      <script src="libs/maskmoney.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.8/jquery.inputmask.min.js" integrity="sha512-efAcjYoYT0sXxQRtxGY37CKYmqsFVOIwMApaEbrxJr4RwqVVGw8o+Lfh/+59TU07+suZn1BWq4fDl5fdgyCNkw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  </body>
+</html>
